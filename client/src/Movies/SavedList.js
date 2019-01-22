@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
+import { NavLink } from "react-router-dom";
 
 export default class SavedList extends Component {
   constructor(props) {
     super(props);
   }
 
-  backToHome = (e) => {
-    e.preventDefault();
-    this.props.history.push('/');
-  }
 
   render() {
   
@@ -18,7 +15,7 @@ export default class SavedList extends Component {
         {this.props.list.map(movie => (
           <span className="saved-movie">{movie.title}</span>
         ))}
-        <div onClick={this.backToHome} className="home-button">Home</div>
+        <NavLink exact to="/" className="home-button">Home</NavLink>
       </div>
     );
   }
